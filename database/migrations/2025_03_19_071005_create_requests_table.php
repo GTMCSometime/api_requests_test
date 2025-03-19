@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email');
             $table->enum('type', RequestStatus::STATUS)->default(RequestStatus::STATUS['Active']);
             $table->text('message');
-            $table->text('comment');
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Request extends Model
 {
 
-    protected $table = 'applications';
+    protected $table = 'requests';
     protected $guard = false;
 
     protected $fillable = [

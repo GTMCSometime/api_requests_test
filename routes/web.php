@@ -6,6 +6,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'user'], function() {
-    Route::get('/', App\Http\Controllers\Users\IndexController::class)->name('users.index');
+Route::group(['prefix' => 'request'], function() {
+    Route::get('/', App\Http\Controllers\Request\CreateController::class)->name('request.create');
+    Route::post('/', App\Http\Controllers\Request\StoreController::class)->name('request.store');
 });

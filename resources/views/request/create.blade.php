@@ -1,14 +1,12 @@
 <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-
-
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Оформление заявки</h1>
           </div>
         </div>
-            <form action="#" method="post" class="w-25">
+            <form action="{{ route('request.store') }}" method="post" class="w-25">
               @csrf
   <div class="mb-3">
     <label for="name" class="form-label">Имя</label>
@@ -24,20 +22,15 @@
 <div class="text-danger">{{ $message }}</div>
   @enderror
   </div>
-  <section class="comment-section">
-                        <h2 class="section-title mb-5">Сообщение</h2>
-                        <form action="#" method="post">
-                            @csrf
-                            <div class="row">
+               <h2 class="section-title mb-5">Сообщение</h2>
+                         <div class="row">
                                 <div class="form-group col-12">
                                 <textarea name="message" id="message" class="form-control" placeholder="Комментарий" rows="10"></textarea>
-                                </div>
+                                @error('message')
+<div class="text-danger">{{ $message }}</div>
+  @enderror
+                              </div>
                             </div>
-                            <div class="row">
-                            </div>
-                        </form>
-                    </section>
-                    </div>
 
   <button type="submit" class="btn btn-primary" value="Добавить">Добавить</button>
 </form>
