@@ -15,6 +15,6 @@ class StoreController extends Controller
         $message = Request::create($data);
         Mail::to($data['email'])->send(new RequestRegister($message));
         
-        return view('request.show');
+        return view('user.request.show');
     }
 }

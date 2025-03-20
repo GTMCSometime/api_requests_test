@@ -7,6 +7,10 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'request'], function() {
-    Route::get('/', App\Http\Controllers\Request\CreateController::class)->name('request.create');
-    Route::post('/', App\Http\Controllers\Request\StoreController::class)->name('request.store');
+    Route::get('/', App\Http\Controllers\Request\CreateController::class)->name('request.users.create');
+    Route::post('/', App\Http\Controllers\Request\StoreController::class)->name('request.users.store');
+    Route::get('/admin', App\Http\Controllers\Admin\ShowController::class)->name('request.admin.show');
+    
 });
+
+
