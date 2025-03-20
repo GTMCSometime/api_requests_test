@@ -6,6 +6,11 @@
           <div class="col-sm-6">
           <div class="row">
         <div class="col-6">
+          <div>
+            <a href=""><button>Все</button></a>
+            <a href=""></a><button>Активные</button></a>
+            <a href=""><button>Решенные</button></a>
+          </div>
         <table class="table">
   <thead>
     <tr>
