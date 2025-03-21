@@ -7,9 +7,16 @@
           <div class="row">
         <div class="col-6">
           <div>
-            <a href="{{ route('request.admin.show') }}"><button>Все</button></a>
-            <a href="{{ route('request.admin.show', parameters: '?type=Активна') }}"><button>Активные</button></a>
-            <a href="{{ route('request.admin.show', '?type=Решена') }}"><button>Решенные</button></a>
+            <form action="{{ route('request.admin.show') }}" method="get">
+              @csrf
+              <select class="form-select" aria-label="Default select example" name="type">
+  <option value="0">Выберите</option>
+  @foreach ($types as $type)
+  <option value="{{ $type->value }}">{{ $type->value }}</option>
+  @endforeach
+</select>
+            <button type="submit">Фильтр</button>
+            </form>
           </div>
         <table class="table">
   <thead>

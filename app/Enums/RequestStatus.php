@@ -2,17 +2,23 @@
 
 namespace App\Enums;
 
-use BenSampo\Enum\Enum;
 
-
-final class RequestStatus extends Enum
+enum RequestStatus: string
 {
 
-    const STATUS = [
+    case Active = 'Active';
+    case Resolved = 'Resolved';
 
-        'Active' => 'Активна',
 
-        'Resolved' => 'Решена',
+    public static function getStatus(RequestStatus $enum) : string 
+    {
+        return match($enum) {
+            RequestStatus::Active => 'Active',
+            RequestStatus::Resolved => 'Resolved',
+            default => '',
+        };
+    }
 
-    ];
+
+
 }

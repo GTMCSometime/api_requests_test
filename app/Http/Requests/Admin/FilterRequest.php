@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Enums\RequestStatus;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+
 
 class FilterRequest extends FormRequest
 {
@@ -24,9 +27,7 @@ class FilterRequest extends FormRequest
     public function rules()
     {
         return [
-            'message' => 'string',
-            'created_at' => 'string',
-            'type' => 'string'
+            'type' => Rule::enum(RequestStatus::class),
         ];
     }
 }
