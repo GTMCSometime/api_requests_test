@@ -7,9 +7,9 @@
           <div class="row">
         <div class="col-6">
           <div>
-            <a href="{{ route('request.admin.show') }}"><button>Все</button></a>
-            <a href="{{ route('request.admin.show', parameters: '?type=Активна') }}"><button>Активные</button></a>
-            <a href="{{ route('request.admin.show', '?type=Решена') }}"><button>Решенные</button></a>
+            <a href="{{ route('request.admin.show') }}"><button class="btn btn-success">Все</button></a>
+            <a href="{{ route('request.admin.show', parameters: '?type=Активна') }}"><button class="btn btn-success">Активные</button></a>
+            <a href="{{ route('request.admin.show', '?type=Решена') }}"><button class="btn btn-success">Решенные</button></a>
           </div>
         <table class="table">
   <thead>

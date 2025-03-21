@@ -26,6 +26,7 @@ class FilterRequest extends FormRequest
         return [
             'message' => 'string',
             'created_at' => 'string',
+            'type' => 'string'
         ];
     }
 }

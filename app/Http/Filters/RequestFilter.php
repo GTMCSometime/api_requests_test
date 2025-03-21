@@ -8,21 +8,21 @@ use Illuminate\Database\Eloquent\Builder;
 
 class RequestFilter extends AbstractFilter
 {
-    public const MESSAGE = 'message';
+    public const TYPE = 'type';
     public const DATE = 'created_at';
 
 
     protected function getCallbacks(): array
     {
         return [
-            self::MESSAGE => [$this, 'message'],
+            self::TYPE => [$this, 'type'],
             self::DATE => [$this, 'created_at'],
         ];
     }
 
-    public function message(Builder $builder, $value)
+    public function type(Builder $builder, $value)
     {
-        $builder->where('message', 'like', "%{$value}%");
+        $builder->where('type',  $value);
     }
 
     protected function date(Builder $builder, $value) 
