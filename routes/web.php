@@ -20,3 +20,4 @@ Route::group(['prefix' => 'filter'], function() {
 });
 Route::get('/status', App\Http\Controllers\Admin\Filter\Status\IndexController::class)->name('filter.status.index');
 Route::get('/date', App\Http\Controllers\Admin\Filter\Date\IndexController::class)->name('filter.date.index');
+Route::get('/date/status', App\Http\Controllers\Admin\Filter\DateAndStatus\IndexController::class)->name('filter.dateandstatus.index');

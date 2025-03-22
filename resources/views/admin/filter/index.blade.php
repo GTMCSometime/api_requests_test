@@ -15,6 +15,10 @@
                         <a href="{{ route('filter.date.index') }}">По дате
                         </a>
                         </li>
+                        <li>
+                        <a href="{{ route('filter.dateandstatus.index') }}">По статусу заявки и по дате
+                        </a>
+                        </li>
                     </ul>
 </div>
 </div> 
