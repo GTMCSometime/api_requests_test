@@ -3,7 +3,7 @@
 
 namespace App\Http\Filters;
 
-
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 
 class RequestFilter extends AbstractFilter
@@ -25,9 +25,9 @@ class RequestFilter extends AbstractFilter
         $builder->where('type',  $value);
     }
 
-    protected function date(Builder $builder, $value) 
+    protected function created_at(Builder $builder, $value) 
     {
-        $builder->whereBetween('created_at', [$value['min'], $value['max']]);
+        $builder->whereDate('created_at', new Carbon($value));
     }
     
 

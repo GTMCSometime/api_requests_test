@@ -12,7 +12,7 @@
                         </a>
                         </li>
                         <li>
-                        <a href="#">По дате
+                        <a href="{{ route('filter.date.index') }}">По дате
                         </a>
                         </li>
                     </ul>

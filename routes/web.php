@@ -18,4 +18,5 @@ Route::group(['prefix' => 'admin'], function() {
 Route::group(['prefix' => 'filter'], function() {  
     Route::get('/', App\Http\Controllers\Admin\Filter\IndexController::class)->name('filter.admin.index');
 });
-Route::get('/', App\Http\Controllers\Admin\Filter\Status\IndexController::class)->name('filter.status.index');
+Route::get('/status', App\Http\Controllers\Admin\Filter\Status\IndexController::class)->name('filter.status.index');
+Route::get('/date', App\Http\Controllers\Admin\Filter\Date\IndexController::class)->name('filter.date.index');

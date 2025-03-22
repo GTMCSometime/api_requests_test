@@ -28,6 +28,7 @@ class FilterRequest extends FormRequest
     {
         return [
             'type' => Rule::enum(RequestStatus::class),
+            'created_at' => 'nullable|string',
         ];
     }
 }
