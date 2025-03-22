@@ -8,7 +8,7 @@
         <div class="col-6">
         <form action="{{ route('request.admin.index') }}" method="get">
           @csrf
-        <label for="created_at" class="form-label">Имя</label>
+        <label for="created_at" class="form-label">Дата</label>
         <input type="text" class="form-control" name="created_at" id="created_at" placeholder="Дату в формате: ГГГГ-ММ-ДД" value="{{ old('date') }}">
         <button type="submit">Фильтр</button>
         </form>

@@ -26,7 +26,7 @@ class StoreRequest extends FormRequest
             'email.email' => "Введите корректный email",
             'email.unique' => "Почта занята",
             'message.required' => 'Заполните заявку',
-            'message.string' => 'Некорректный rтип данных',
+            'message.string' => 'Некорректный тип данных',
         ];
     }
 }

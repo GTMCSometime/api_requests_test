@@ -9,13 +9,14 @@
           <div>
           <form action="{{ route('request.admin.index') }}" method="get">
               @csrf
+              <label for="type" class="form-label">Выберите статус</label>
               <select class="form-select" aria-label="Default select example" name="type">
   <option value="0">Выберите</option>
   @foreach ($types as $type)
   <option value="{{ $type->value }}">{{ $type->value }}</option>
   @endforeach
 </select>
-<label for="created_at" class="form-label">Имя</label>
+<label for="created_at" class="form-label"></label>
         <input type="text" class="form-control" name="created_at" id="created_at" placeholder="Дату в формате: ГГГГ-ММ-ДД" value="{{ old('date') }}">
             <button type="submit">Фильтр</button>
 

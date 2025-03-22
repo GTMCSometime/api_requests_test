@@ -16,11 +16,11 @@ class RequestAnswer extends Mailable
     /**
      * Create a new message instance.
      */
-    public $answer;
+    public $request;
 
-    public function __construct($answer)
+    public function __construct($request)
     {
-        $this->answer = $answer;
+        $this->request = $request;
     }
 
     /**

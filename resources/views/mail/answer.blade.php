@@ -1,3 +1,2 @@
-Ответ на вашу заявку {{ $request->id }}
-{{ $request->message }} :
-"{{ $request->comment }}"
+Ваша заявка решена.
+Ответ :"{{ $request['comment'] }}"

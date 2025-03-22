@@ -16,7 +16,7 @@ class Request extends Model
     protected $fillable = [
         'name',
         'email',
-        'status',
+        'type',
         'message',
         'comment',
     ];

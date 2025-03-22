@@ -20,8 +20,7 @@
     <tr>
       <td>{{ $request->id}}</td>
       <td>{{ $request->message}}</td>
-      <td><a href="#"><i class="far fa-eye"></a></td>
-      <td><a href="#" class="text-success"><i class="fas fa-pencil-alt"></a></td>
+      <td><a href="{{ route('request.admin.edit', $request->id) }}" class="text-success"><i class="fas fa-pencil-alt">Ответить</a></td>
       <td>
       </td>
       @endforeach
