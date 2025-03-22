@@ -21,6 +21,16 @@ class User extends Authenticatable
 
     protected $table = 'users';
     protected $guard = false; 
+
+    const ROLE_ADMIN = 0;
+    const ROLE_USER = 1;
+
+    public static function getRoles() {
+        return [
+            self::ROLE_ADMIN => 'Админ',
+            self::ROLE_USER => 'Читатель',
+        ];
+    }
     
     protected $fillable = [
         'name',
