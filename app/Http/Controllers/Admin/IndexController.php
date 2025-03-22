@@ -10,7 +10,7 @@ use App\Http\Requests\Admin\FilterRequest;
 use App\Models\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-class ShowController extends Controller
+class IndexController extends Controller
 {
     public function __invoke(FilterRequest $request) {
         $types = RequestStatus::cases();
