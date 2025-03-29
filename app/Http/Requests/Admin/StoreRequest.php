@@ -13,6 +13,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'comment' => 'required|string',
+            'email' => 'required|email',
         ];
     }
 

@@ -12,6 +12,8 @@
     <tr>
       <th>ID</th>
       <th>Название</th>
+      <th>Статус</th>
+      <th>Дата</th>
       <th colspan="3" class="text-center">Действие</th>
     </tr>
   </thead>
@@ -20,7 +22,9 @@
     <tr>
       <td>{{ $request->id}}</td>
       <td>{{ $request->message}}</td>
-      <td><a href="{{ route('request.admin.edit', $request->id) }}" class="text-success"><i class="fas fa-pencil-alt">Ответить</a></td>
+      <td>{{ $request->type}}</td>
+      <td>{{ $request->created_at->format('H-m-d')}}</td>
+      <td><a href="{{ route('request.admin.edit', $request->id) }}" class="text-success">Ответить</a></td>
       <td>
       </td>
       @endforeach

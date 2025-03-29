@@ -9,9 +9,10 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class RequestAnswer extends Mailable
+class RequestAnswer extends Mailable implements ShouldQueue
 {
-    use Queueable, SerializesModels;
+    use SerializesModels, Queueable;
+
 
     /**
      * Create a new message instance.
