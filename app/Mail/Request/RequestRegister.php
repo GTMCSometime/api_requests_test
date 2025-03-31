@@ -17,11 +17,9 @@ class RequestRegister extends Mailable implements ShouldQueue
      * Create a new message instance.
      */
 
-    public $request;
 
-    public function __construct($request)
+    public function __construct(public array $data)
     {
-        $this->request = $request;
     }
 
     /**

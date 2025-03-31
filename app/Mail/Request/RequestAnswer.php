@@ -17,11 +17,11 @@ class RequestAnswer extends Mailable implements ShouldQueue
     /**
      * Create a new message instance.
      */
-    public $request;
 
-    public function __construct($request)
+
+    public function __construct(public array $data)
     {
-        $this->request = $request;
+
     }
 
     /**
@@ -41,6 +41,8 @@ class RequestAnswer extends Mailable implements ShouldQueue
     {
         return new Content(
             view: 'mail.answer',
+            with:['name' => $this->data['comment'],
+        ],
         );
     }
 

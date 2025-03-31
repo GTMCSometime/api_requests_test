@@ -24,4 +24,5 @@ class Request extends Model
     protected $casts = [
         'status' => RequestStatus::class,
     ];
+
 }
