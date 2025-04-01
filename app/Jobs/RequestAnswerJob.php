@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Mail;
 
+
 class RequestAnswerJob implements ShouldQueue
 {
     use Queueable;
@@ -24,7 +25,6 @@ class RequestAnswerJob implements ShouldQueue
      */
     public function handle(): void
     {
-        
         Mail::to($this->data['email'])->send(new RequestAnswer($this->data));
     }
 }

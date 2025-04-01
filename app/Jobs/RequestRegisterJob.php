@@ -14,16 +14,16 @@ class RequestRegisterJob implements ShouldQueue
     /**
      * Create a new job instance.
      */
+
     public function __construct(public array $data)
     {
-        //
     }
 
     /**
      * Execute the job.
      */
     public function handle(): void
-    {
+    {   
         Mail::to($this->data['email'])->send(new RequestRegister($this->data));
     }
 }
