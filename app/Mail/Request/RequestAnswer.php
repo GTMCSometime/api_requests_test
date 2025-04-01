@@ -9,18 +9,19 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class RequestAnswer extends Mailable
+class RequestAnswer extends Mailable implements ShouldQueue
 {
-    use Queueable, SerializesModels;
+    use SerializesModels, Queueable;
+
 
     /**
      * Create a new message instance.
      */
-    public $request;
 
-    public function __construct($request)
+
+    public function __construct(public array $data)
     {
-        $this->request = $request;
+
     }
 
     /**
@@ -40,6 +41,8 @@ class RequestAnswer extends Mailable
     {
         return new Content(
             view: 'mail.answer',
+            with:['name' => $this->data['comment'],
+        ],
         );
     }
 

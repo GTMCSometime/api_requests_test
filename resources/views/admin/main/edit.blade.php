@@ -23,6 +23,7 @@
 <div class="text-danger">{{ $message }}</div>
   @enderror
 </div>
+<input type="hidden" name="email" value="{{ $request->email }}">
   <button type="submit" class="btn btn-primary" value="Отправить">Отправить</button>
 </form>
             </div>

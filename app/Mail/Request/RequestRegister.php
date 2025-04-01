@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class RequestRegister extends Mailable
+class RequestRegister extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -17,11 +17,9 @@ class RequestRegister extends Mailable
      * Create a new message instance.
      */
 
-    public $request;
 
-    public function __construct($request)
+    public function __construct(public $data)
     {
-        $this->request = $request;
     }
 
     /**

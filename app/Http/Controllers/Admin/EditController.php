@@ -11,7 +11,5 @@ class EditController extends Controller
 {
     public function __invoke(Request $request) {
         return view('admin.main.edit', compact('request'));
-        
-
     }
 }
