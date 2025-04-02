@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use App\Enums\RequestStatus;
 use App\Traits\Filterable;
-use Illuminate\Database\Eloquent\Model;
 
 class Request extends Model
 {
-    use Filterable;
+    use Filterable, HasFactory;
 
     protected $table = 'requests';
     protected $guard = false;
