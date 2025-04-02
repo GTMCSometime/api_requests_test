@@ -8,7 +8,6 @@
         <div class="col-6">
           <div>
           <form action="{{ route('request.admin.index') }}" method="get">
-              @csrf
               <label for="type" class="form-label">Выберите статус</label>
               <select class="form-select" aria-label="Default select example" name="type">
   <option value="0">Выберите</option>

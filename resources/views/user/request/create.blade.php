@@ -6,7 +6,7 @@
             <h1 class="m-0">Оформление заявки</h1>
           </div>
         </div>
-            <form action="{{ route('request.users.store') }}" method="post" class="w-25">
+            <form action="{{ route('requests.users.store') }}" method="post" class="w-25">
               @csrf
   <div class="mb-3">
     <label for="name" class="form-label">Имя</label>

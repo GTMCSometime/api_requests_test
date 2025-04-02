@@ -7,7 +7,7 @@
             <h1 class="m-0">Оформление заявки</h1>
           </div>
         </div>
-            <form action="{{ route('request.admin.store', $request->id) }}" method="post" class="w-25">
+            <form action="{{ route('requests.admin.store', $request->id) }}" method="post" class="w-25">
               @csrf
               @method('patch')
   <div class="mb-3">

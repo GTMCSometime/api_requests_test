@@ -12,7 +12,7 @@ class StoreController extends BaseController
     public function __invoke(StoreRequest $storeRequest, Request $request) {
         $data = $storeRequest->validated();
         $request = $this->service->update($data, $request);
-        return redirect()->route('request.admin.index');
+        return redirect()->route('requests.admin.index');
         
 
     }

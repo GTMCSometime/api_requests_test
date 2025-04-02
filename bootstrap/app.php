@@ -14,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->appendToGroup('web',HandleCors::class);
+        //$middleware->validateCsrfTokens(['requests']);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

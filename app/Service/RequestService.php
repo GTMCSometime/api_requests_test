@@ -16,21 +16,21 @@ class RequestService {
         try {
             DB::beginTransaction();
             
-            Request::create($data);
+            $requestCreate = Request::create($data);
             dispatch(new RequestRegisterJob($data));
-            
             DB::commit();
         } catch(\Exception $exception) {
             DB::rollBack();
             abort(500);
         }
-
+        return $requestCreate;
     }
 
     public function update($data, $request) {
         try {
 
             $data['type'] = RequestStatus::Resolved;
+            $data['email'] = $request->email;
             $request->update($data);
             dispatch(new RequestAnswerJob($data));
 

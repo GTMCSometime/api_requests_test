@@ -8,7 +8,6 @@
         <div class="col-6">
           <div>
           <form action="{{ route('request.admin.index') }}" method="get">
-              @csrf
               <select class="form-select" aria-label="Default select example" name="type">
   <option value="0">Выберите</option>
   @foreach ($types as $type)

@@ -24,7 +24,7 @@
       <td>{{ $request->message}}</td>
       <td>{{ $request->type}}</td>
       <td>{{ $request->created_at->format('H-m-d')}}</td>
-      <td><a href="{{ route('request.admin.edit', $request->id) }}" class="text-success">Ответить</a></td>
+      <td><a href="{{ route('requests.admin.edit', $request->id) }}" class="text-success">Ответить</a></td>
       <td>
       </td>
       @endforeach
