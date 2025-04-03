@@ -4,18 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Enums\RequestStatus;
-use App\Http\Controllers\Controller;
 use App\Http\Filters\RequestFilter;
 use App\Http\Requests\Admin\FilterRequest;
 use App\Http\Resources\RequestResource;
 use App\Models\Request;
 use App\Http\Controllers\BaseController;
-use App\Http\Requests\Users\StoreRequest;
 use App\Http\Requests\Admin\UpdateRequest;
-
-
-
-
+use App\Http\Requests\StoreRequestRequest;
+use App\Http\Requests\UpdateRequestRequest;
 
 class RequestController extends BaseController
 {
@@ -32,7 +28,7 @@ class RequestController extends BaseController
 
     }
 
-    public function store(StoreRequest $storeRequest) {
+    public function store(StoreRequestRequest $storeRequest) {
         $data = $storeRequest->validated();
         $requestCreate = $this->service->store($data);
         return response()->json(
@@ -44,7 +40,7 @@ class RequestController extends BaseController
         return new RequestResource($request);
 
     }
-    public function update(UpdateRequest $storeRequest, Request $request) {
+    public function update(UpdateRequestRequest $storeRequest, Request $request) {
         $data = $storeRequest->validated();
         $request = $this->service->update($data, $request);
         return response()->json(

@@ -23,8 +23,19 @@ class StoreRequestRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'email' => 'required|email',
+            'email' => 'required|string',
             'message' => 'required|string',
+        ];
+    }
+
+    public function messages() {
+        return [
+            'name.required' => "Это поле необходимо заполнить",
+            'name.string' => "Данные должны соответствовать строчному типу",
+            'email.required' => "Это поле необходимо заполнить",
+            'email.string' => "Введите корректный email",
+            'message.required' => 'Необходимо ввести сообщение',
+            'message.string' => 'Данные должны соответствовать строчному типу',
         ];
     }
 

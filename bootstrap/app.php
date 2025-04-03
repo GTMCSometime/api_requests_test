@@ -16,7 +16,8 @@ return Application::configure(basePath: dirname(__DIR__))
         //$middleware->appendToGroup('web',HandleCors::class);
         //$middleware->appendToGroup('api',HandleCors::class);
         //$middleware->appendToGroup('auth',HandleCors::class);
-        $middleware->validateCsrfTokens(['login']);
+        //$middleware->validateCsrfTokens(['login']);
+        $middleware->validateCsrfTokens(['requests']);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
