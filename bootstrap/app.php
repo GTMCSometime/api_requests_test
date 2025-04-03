@@ -13,8 +13,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->appendToGroup('web',HandleCors::class);
-        //$middleware->validateCsrfTokens(['requests']);
+        //$middleware->appendToGroup('web',HandleCors::class);
+        //$middleware->appendToGroup('api',HandleCors::class);
+        //$middleware->appendToGroup('auth',HandleCors::class);
+        $middleware->validateCsrfTokens(['login']);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

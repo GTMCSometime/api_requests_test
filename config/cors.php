@@ -21,11 +21,11 @@ return [
 
     'allowed_origins' => ['http://localhost:8000'],
 
-    'allowed_origins_patterns' => [''],
+    'allowed_origins_patterns' => ['http://localhost:8000'],
 
-    'allowed_headers' => [''],
+    'allowed_headers' => ['localhost'],
 
-    'exposed_headers' => [''],
+    'exposed_headers' => ['8000'],
 
     'max_age' => 0,
 

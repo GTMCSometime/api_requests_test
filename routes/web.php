@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
-/*Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
@@ -36,4 +36,3 @@ Route::group(['prefix' => 'requests'], function() {
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     });
 });
-*/
