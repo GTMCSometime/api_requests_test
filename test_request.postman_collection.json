@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "adc4d7ef-391c-482a-84d7-f77851a9b5d5",
+		"name": "test_request",
+		"description": "Авторизация происходит через token Sanctum.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41330323",
+		"_collection_link": "https://myself-5237.postman.co/workspace/a8f14e52-f8a6-4cff-9d53-50de11183d89/collection/41330323-adc4d7ef-391c-482a-84d7-f77851a9b5d5?action=share&source=collection_link&creator=41330323"
+	},
+	"item": [
+		{
+			"name": "Store requests",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "Отправка заявки. Доступна без авторизации."
+			},
+			"response": []
+		},
+		{
+			"name": "Регистрация",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8002/api/register?name=admin&email=admin@admin.com&password=AdminAdmin123&password_confirmation=AdminAdmin123",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"register"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "admin"
+						},
+						{
+							"key": "email",
+							"value": "admin@admin.com"
+						},
+						{
+							"key": "password",
+							"value": "AdminAdmin123"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "AdminAdmin123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Авторизация",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "После регистрации необходимо войти в аккаунт и получить новый токен. Необходима авторизация по bearer token."
+			},
+			"response": []
+		},
+		{
+			"name": "Show requests",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "По умолчанию показывает все заявки. Для сортировки можно использовать ?type=Active, или ?type=Resolved. Для фильтрации по датам необходимо использовать ?created_at и дату в формате YYYY-MM-DD. Можно использовать вместе, разделяя их &. Необходима авторизация по bearer token."
+			},
+			"response": []
+		},
+		{
+			"name": "Update requests",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "Необходима авторизация по bearer token."
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "Необходима авторизация по bearer token."
+			},
+			"response": []
+		}
+	]
+}
