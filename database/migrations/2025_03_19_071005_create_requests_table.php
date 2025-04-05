@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->enum('type', ['Active', 'Resolved'])->default(RequestStatus::Active);
+            $table->enum('type', ['Active', 'Resolved'])->default('Active');
             $table->text('message');
             $table->text('comment')->nullable();
             $table->timestamps();

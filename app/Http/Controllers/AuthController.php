@@ -15,7 +15,6 @@ use Illuminate\Validation\Rules;
 class AuthController extends Controller
 {
     public function register(Request $request) {
-
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
@@ -31,7 +30,7 @@ class AuthController extends Controller
         $token = $user->createToken($request->name);
 
         return response()->json(
-            ['message' => 'Пользователь создан.',
+            ['message' => 'Пользователь создан. Скопируйте токен для авторизации',
                     'data' => $token->plainTextToken], 200);
     }
 
@@ -51,7 +50,7 @@ class AuthController extends Controller
         } else {
             $token = $user->createToken($user->name);
         return response()->json(
-            ['message' => 'Вы авторизованы.',
+            ['message' => 'Вы авторизованы. Скопируйте новый токен.',
                     'data' => $token->plainTextToken], 200);
     }
         }

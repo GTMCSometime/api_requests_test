@@ -1,22 +1,30 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 
-use App\Enums\RequestStatus;
-use App\Http\Controllers\Controller;
+
 use App\Http\Filters\RequestFilter;
-use App\Http\Requests\Admin\FilterRequest;
+use App\Http\Requests\FilterRequest;
 use App\Http\Requests\StoreRequestRequest;
 use App\Http\Resources\RequestResource;
+use App\Mail\Request\RequestRegister;
 use App\Models\Request;
 use App\Http\Controllers\BaseController;
-use App\Http\Requests\Users\StoreRequest;
-use App\Http\Requests\Admin\UpdateRequest;
 use App\Http\Requests\UpdateRequestRequest;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Support\Facades\Mail;
 
-class RequestController extends BaseController
+class RequestController extends BaseController implements HasMiddleware
 {
+
+    public static function middleware() {
+        return [
+            new Middleware('auth:sanctum', except: ['store'])
+        ];
+    }
+    
     public function index(FilterRequest $request) {
         $data = $request->validated();
         $filter = app()->make(RequestFilter::class, ['queryParams' => array_filter($data)]);

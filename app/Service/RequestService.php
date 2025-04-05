@@ -15,9 +15,8 @@ class RequestService {
     public function store($data) {
         try {
             DB::beginTransaction();
-            
-            $requestCreate = Request::create($data);
             dispatch(new RequestRegisterJob($data));
+            $requestCreate = Request::create($data);
             DB::commit();
         } catch(\Exception $exception) {
             DB::rollBack();

@@ -18,7 +18,7 @@ class RequestRegister extends Mailable implements ShouldQueue
      */
 
 
-    public function __construct(public $data)
+    public function __construct(public array $data)
     {
     }
 
