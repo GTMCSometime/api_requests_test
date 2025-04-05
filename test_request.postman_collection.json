@@ -5,14 +5,38 @@
 		"description": "Авторизация происходит через token Sanctum.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "41330323",
-		"_collection_link": "https://myself-5237.postman.co/workspace/a8f14e52-f8a6-4cff-9d53-50de11183d89/collection/41330323-adc4d7ef-391c-482a-84d7-f77851a9b5d5?action=share&source=collection_link&creator=41330323"
+		"_collection_link": "https://myself-5237.postman.co/workspace/Myself-Workspace~a8f14e52-f8a6-4cff-9d53-50de11183d89/collection/41330323-adc4d7ef-391c-482a-84d7-f77851a9b5d5?action=share&source=collection_link&creator=41330323"
 	},
 	"item": [
 		{
 			"name": "Store requests",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"name\",\n    \"email\": \"email@email.com\",\n    \"message\": \"new problem!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8002/api/requests",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"requests"
+					]
+				},
 				"description": "Отправка заявки. Доступна без авторизации."
 			},
 			"response": []
@@ -22,8 +46,17 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"admin\",\n    \"email\": \"admin@admin.com\",\n    \"password\": \"AdminAdmin123\",\n    \"password_confirmation\": \"AdminAdmin123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://127.0.0.1:8002/api/register?name=admin&email=admin@admin.com&password=AdminAdmin123&password_confirmation=AdminAdmin123",
+					"raw": "http://127.0.0.1:8002/api/register",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -39,19 +72,23 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "admin"
+							"value": "admin",
+							"disabled": true
 						},
 						{
 							"key": "email",
-							"value": "admin@admin.com"
+							"value": "admin@admin.com",
+							"disabled": true
 						},
 						{
 							"key": "password",
-							"value": "AdminAdmin123"
+							"value": "AdminAdmin123",
+							"disabled": true
 						},
 						{
 							"key": "password_confirmation",
-							"value": "AdminAdmin123"
+							"value": "AdminAdmin123",
+							"disabled": true
 						}
 					]
 				}
@@ -61,8 +98,42 @@
 		{
 			"name": "Авторизация",
 			"request": {
-				"method": "GET",
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|txRYgHdtJQ6NqrqIy9AnP8K884HRmcZKf7F4LbJm99fe2478",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"AdminAdmin123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8002/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"login"
+					]
+				},
 				"description": "После регистрации необходимо войти в аккаунт и получить новый токен. Необходима авторизация по bearer token."
 			},
 			"response": []
@@ -70,8 +141,33 @@
 		{
 			"name": "Show requests",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|txRYgHdtJQ6NqrqIy9AnP8K884HRmcZKf7F4LbJm99fe2478",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8002/api/requests",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"requests"
+					]
+				},
 				"description": "По умолчанию показывает все заявки. Для сортировки можно использовать ?type=Active, или ?type=Resolved. Для фильтрации по датам необходимо использовать ?created_at и дату в формате YYYY-MM-DD. Можно использовать вместе, разделяя их &. Необходима авторизация по bearer token."
 			},
 			"response": []
@@ -79,8 +175,43 @@
 		{
 			"name": "Update requests",
 			"request": {
-				"method": "GET",
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|txRYgHdtJQ6NqrqIy9AnP8K884HRmcZKf7F4LbJm99fe2478",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message\": \"no problem\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8002/api/requests/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"requests",
+						"1"
+					]
+				},
 				"description": "Необходима авторизация по bearer token."
 			},
 			"response": []
@@ -88,8 +219,33 @@
 		{
 			"name": "Logout",
 			"request": {
-				"method": "GET",
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|txRYgHdtJQ6NqrqIy9AnP8K884HRmcZKf7F4LbJm99fe2478",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
 				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8002/api/logout",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"logout"
+					]
+				},
 				"description": "Необходима авторизация по bearer token."
 			},
 			"response": []
